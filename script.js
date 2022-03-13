@@ -24,18 +24,21 @@ sampleCallback((message) =>{
 }
 )
 
-function samplePromise(callback, errorCallback){
-    if(option1){
-        errorCallback({
-            name: 'option1',
-            message: 'Chocolate is best'
-        })
-    }else if (option2){
-        errorCallback({
-            name: 'option2',
-            message: 'Strawberry is best'
-        })
-    }else{
-        callback('Vanilla is best')
-    }
+function samplePromise(){
+    return new Promise((resolve, reject)=>{
+        
+        if(option1){
+            reject({
+                name: 'option1',
+                message: 'Chocolate is best'
+            })
+        }else if (option2){
+            reject({
+                name: 'option2',
+                message: 'Strawberry is best'
+            })
+        }else{
+            resolve('Vanilla is best')
+        }
+    })
 }
